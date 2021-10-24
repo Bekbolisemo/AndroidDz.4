@@ -17,7 +17,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public void updateData (ArrayList<Model> list , onClick onClick){
         this.list = new ArrayList<>();
-        this.list = list;
+        this.list.addAll(list);
         click = onClick;
         notifyDataSetChanged();
     }
@@ -50,10 +50,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             time = itemView.findViewById(R.id.time);
         }
           public void bind(Model model){
-            number.setText(model.getNumber());
-            musicName.setText(model.getMusicName());
-            executor.setText(model.getExecutor());
-            time.setText(model.getTime());
+            number.setText(String.valueOf(model.getNumber()));
+            musicName.setText(String.valueOf(model.getMusicName()));
+            executor.setText(String.valueOf(model.getExecutor()));
+            time.setText(String.valueOf(model.getTime()));
             itemView.setOnClickListener(view ->{
                 click.onItemClick(model);
             });
