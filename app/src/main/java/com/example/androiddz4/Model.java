@@ -1,24 +1,23 @@
 package com.example.androiddz4;
 
 public class Model {
-    private int number;
+    private String number;
     private String musicName;
     private String executor;
     private String time;
 
-    public Model(int number, String musicName, String executor, String time) {
+    public Model(String number, String musicName, String executor, String time) {
         this.number = number;
         this.musicName = musicName;
         this.executor = executor;
         this.time = time;
     }
 
-
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

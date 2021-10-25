@@ -17,4 +17,9 @@
     <string name="time_5">5:33</string>
     <string name="Writings_On_The_Wall">Writing\'s On The Wall</string>
     <string name="Sam_Smith">Sam Smith</string>
+    <string name="five">5</string>
+    <string name="four">4</string>
+    <string name="three">3</string>
+    <string name="two">2</string>
+    <string name="one">1</string>
 </resources>

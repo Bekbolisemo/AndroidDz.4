@@ -11,21 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-
-    private ArrayList<Model> list;
+    private ArrayList<Model> list = new ArrayList<>();
     private onClick click;
 
-    public void updateData (ArrayList<Model> list , onClick onClick){
-        this.list = new ArrayList<>();
+    public void updateData(ArrayList<Model> list,onClick onClick){
         this.list.addAll(list);
+        this.list = new ArrayList<>();
         click = onClick;
         notifyDataSetChanged();
     }
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view,parent,false);
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view,parent,false);
         return new ViewHolder(view);
     }
 
@@ -40,7 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView number , musicName, executor,time;
+        private TextView number, musicName,executor,time;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,18 +49,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             executor = itemView.findViewById(R.id.executor);
             time = itemView.findViewById(R.id.time);
         }
-          public void bind(Model model){
+        public void bind(Model model){
             number.setText(String.valueOf(model.getNumber()));
             musicName.setText(String.valueOf(model.getMusicName()));
             executor.setText(String.valueOf(model.getExecutor()));
             time.setText(String.valueOf(model.getTime()));
-            itemView.setOnClickListener(view ->{
+            itemView.setOnClickListener(v ->{
                 click.onItemClick(model);
             });
+
         }
     }
-
-    interface onClick {
-      void onItemClick(Model model);
+    
+    public interface onClick {
+        void onItemClick(Model model);
     }
 }
